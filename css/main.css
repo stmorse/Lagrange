@@ -35,7 +35,7 @@ a {
   text-decoration: none;
   /*border-bottom: 1px solid black;*/
 /*   color: #333; */
-  color: #4a59a8;  /*blue*/
+  color: #6059c1;  /*blue*/
 /*   -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
@@ -45,7 +45,7 @@ a {
 
 a:hover {
   color: black; /*#999;*/
-  border-bottom: 1px dotted black;
+/*   border-bottom: 1px dotted black; */
   transition: .5s;
 }
 
