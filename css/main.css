@@ -354,6 +354,10 @@ ul.posts .post-date {
   .social-icons {
     display: none;
   }
+	
+  .menu-content a {
+    font-size: 1rem;
+  }
 }
 
 /*
