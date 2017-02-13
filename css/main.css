@@ -55,6 +55,12 @@ img {
   border-radius: 5px;
 }
 
+ol, ol li {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 1em;
+}
+
 /*
   Blockquote
 */
