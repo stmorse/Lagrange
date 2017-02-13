@@ -45,7 +45,7 @@ a {
 
 a:hover {
   color: black; /*#999;*/
-/*   border-bottom: 1px dotted black; */
+  border-bottom: 1px dotted black;
   transition: .5s;
 }
 
