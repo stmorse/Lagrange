@@ -41,12 +41,31 @@ a {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s; */
+  display: inline-block;
+  position: relative;
 }
 
 a:hover {
   color: black; /*#999;*/
-  border-bottom: 1px dotted black;
+/*   border-bottom: 1px dotted black; */
   transition: .5s;
+}
+
+a:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 0px;
+	width: 100%;
+	background: transparent;
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+}
+a:hover:after {
+	height: 2px;
+	background: black;
 }
 
 img {
