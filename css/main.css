@@ -86,6 +86,13 @@ ul, ul li {
   margin-left: 1em;
 }
 
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; 
+}
+
 .muted {
   color: #8f8f8f; }
 
@@ -193,6 +200,15 @@ blockquote p {
   content: "";
   display: table;
   clear: both; }
+
+/*
+  Titles on about page
+*/
+
+.titles {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
 
 /*
   Masthead
