@@ -41,8 +41,8 @@ a {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s; */
-  display: inline-block;
-  position: relative;
+/*   display: inline-block;
+  position: relative; */
 }
 
 a:hover {
@@ -52,7 +52,7 @@ a:hover {
 }
 
 /* sliding underline effect */
-a:after {
+/* a:after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -67,7 +67,7 @@ a:after {
 a:hover:after {
 	height: 3px;
 	background: #11e3ff;
-}
+} */
 
 
 img {
