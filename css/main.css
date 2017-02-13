@@ -57,7 +57,12 @@ img {
 
 ol, ol li {
   padding: 0px;
-  margin-left: 2em;
+  margin-left: 1em;
+}
+
+ul, ul li {
+  padding: 0px;
+  margin-left: 1em;
 }
 
 /*
