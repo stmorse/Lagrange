@@ -140,13 +140,28 @@ blockquote p {
   Site container
 */
 
-.container {
+/* .container {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
+} */
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    width: 90%;
+    padding: 0; }
 }
 
-@media (max-width: 1366px) {
+/* @media (max-width: 1366px) {
   .container {
     width: 45vw;
   }
@@ -157,7 +172,7 @@ blockquote p {
   .container {
     width: 75vw;
   }
-}
+} */
 
 /*
   Columns (from Skeleton)
@@ -208,6 +223,10 @@ blockquote p {
 .titles {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
+}
+
+.contact {
+  font-size: 14px;
 }
 
 /*
