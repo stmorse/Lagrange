@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 /*   font-family: "Quattrocento Sans", sans-serif; */
   font-family: "Raleway", sans-serif;
   color: #333;
+  font-weight: 300;
 }
 
 a {
@@ -34,7 +35,7 @@ a {
   text-decoration: none;
   /*border-bottom: 1px solid black;*/
 /*   color: #333; */
-  color: #7970ff;  /*blue*/
+  color: #4a59a8;  /*blue*/
 /*   -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
@@ -44,7 +45,7 @@ a {
 
 a:hover {
   color: black; /*#999;*/
-  border-bottom: none;
+  border-bottom: 1px dotted black;
   transition: .5s;
 }
 
@@ -132,6 +133,7 @@ blockquote p {
 
 .masthead a:hover {
   color:black;
+  border-bottom: none;
 }
 
 .masthead-title a {
@@ -277,6 +279,7 @@ ul.posts .post-date {
 
 .menu-content a {
   color: #999;
+  border-bottom: none;
   font-size: 1.4rem;
   font-weight: 300;
   padding-right: 10px;
@@ -288,6 +291,7 @@ ul.posts .post-date {
 
 .social-icons a {
   color: #999;
+  border-bottom: none;
   font-size: 1.25rem;
 }
 
