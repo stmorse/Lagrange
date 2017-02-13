@@ -149,7 +149,7 @@ blockquote p {
 .container {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 750px;
   margin: 0 auto;
   padding: 0 10px;
   box-sizing: border-box; }
