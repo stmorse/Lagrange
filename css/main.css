@@ -51,6 +51,7 @@ a:hover {
   transition: .5s;
 }
 
+/* sliding underline effect */
 a:after {
 	content: '';
 	position: absolute;
@@ -64,9 +65,10 @@ a:after {
 	transition: all ease 0.5s;
 }
 a:hover:after {
-	height: 2px;
-	background: black;
+	height: 3px;
+	background: #11e3ff;
 }
+
 
 img {
   max-width: 100%;
