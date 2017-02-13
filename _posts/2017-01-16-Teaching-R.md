@@ -2,6 +2,7 @@
 layout: post
 title: Teaching R in a beginner data science class
 date: 2017-01-16
+tags: [R, documentation, teaching]
 ---
 
 
@@ -9,7 +10,7 @@ I recently got talked into helping with a student-led course on software tools f
 
 However, the path from "hey let's switch up the course this year" to "good morning class" was tricky and full of interesting revelations for me.  So I wanted to sum up some observations, and shamelessly link to my:
 
-<center>**[COURSE NOTES](https://stmorse.github.io/intro-tidyverse/master.html)**</center>
+<center><b><a href="https://stmorse.github.io/intro-tidyverse/master.html">COURSE NOTES</a></b></center>
 
 (which are awesome).  
 
