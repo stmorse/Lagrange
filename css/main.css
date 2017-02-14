@@ -4,7 +4,7 @@
 
 body {
   font-family: "Lora", Georgia, "Times New Roman", serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #333333;/*#515151;*//*#3A3A3A;/*rgba(0,0,0,.8);/*#666;*/
   line-height: 1.75rem;
 }
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
   color: #333;
   font-weight: 300;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 a {
@@ -150,7 +150,7 @@ blockquote p {
 .container {
   position: relative;
   width: 100%;
-  max-width: 750px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 10px;
   box-sizing: border-box; }
