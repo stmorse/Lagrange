@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
   color: #333;
   font-weight: 300;
+  margin-top: 1rem;
 }
 
 a {
@@ -221,7 +222,7 @@ blockquote p {
 */
 
 .titles {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 22px;
   font-weight: 300;
 }
@@ -240,7 +241,7 @@ blockquote p {
   margin-bottom: 4rem;
 /*   font-family: "Quattrocento Sans", sans-serif; */
 /*   font-family: "Raleway", sans-serif; */
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
 
@@ -250,7 +251,7 @@ blockquote p {
 }
 
 .masthead-title a {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 2rem;/*25px;*/
   text-decoration: none;
   color: #505050;
@@ -284,7 +285,7 @@ blockquote p {
   display: block;
   margin-bottom: 1rem;
   color: #9a9a9a;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size:0.8rem;
 }
 
@@ -309,7 +310,7 @@ ul.posts, ul.posts li {
   margin: 0;
   padding: 0;
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   list-style: none; }
 ul.posts li {
@@ -395,10 +396,10 @@ ul.posts .post-date {
 .menu-content a {
   color: #999;
   border-bottom: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.4rem;
   font-weight: 300;
-  padding-right: 10px;
+/*   padding-right: 10px; */
 }
 
 .social-icons {
