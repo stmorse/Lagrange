@@ -250,6 +250,7 @@ blockquote p {
 }
 
 .masthead-title a {
+  font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;/*25px;*/
   text-decoration: none;
   color: #505050;
@@ -394,6 +395,7 @@ ul.posts .post-date {
 .menu-content a {
   color: #999;
   border-bottom: none;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 300;
   padding-right: 10px;
