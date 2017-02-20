@@ -22,7 +22,7 @@ I'll take the words-to-slots approach instead.  This method makes sure each slot
 
 (Removed paragraph.)
 
-As a preprocessing step, we can go through and set $$z_{k,m}=0$$ wherever $$|W_k| $\neq$ |S_m|$$, i.e., we can't assign a word to a slot if it doesn't even fit.  We can then define our first two sets of constraints in the usual IP way, as
+As a preprocessing step, we can go through and set $$z_{k,m}=0$$ wherever $$W_k \neq S_m$$, i.e., we can't assign a word to a slot if it doesn't even fit.  We can then define our first two sets of constraints in the usual IP way, as
 
 $$
 \begin{align*}
