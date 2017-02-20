@@ -20,9 +20,9 @@ So let's formulate crossword puzzle generation as an IP, and let's start by defi
 
 I'll take the words-to-slots approach instead.  This method makes sure each slot has a single word assigned, and the hard part is making sure the intersecting letters for across and down slots are the same.  But let's start with the easy stuff.
 
-(Removed paragraph.)
+Let's define our available vocabulary as $$W=\{w_k\}$$, $$k=1,...,\|W\|$$, so $$w_3$$ might be "oreo" for example. The slots in the puzzle denote $$S=\{s_m\}$$, $$m=1,...,\|S\|$$, so $$s_10$$ might be "3 across."  Now let's define our decision variables as $$z_{k,m}\in\{0,1\}$$, so that $$z_{3,10}=1$$ means that "oreo" is in the "3 across" slot (and $$z_{3,10}=0$$ means that it's not).
 
-As a preprocessing step, we can go through and set $$z_{k,m}=0$$ wherever $$W_k \neq S_m$$, i.e., we can't assign a word to a slot if it doesn't even fit.  We can then define our first two sets of constraints in the usual IP way, as
+As a preprocessing step, we can go through and set $$z_{k,m}=0$$ wherever $$\|W_k\| \neq \|S_m\|$$, i.e., we can't assign a word to a slot if it doesn't even fit.  We can then define our first two sets of constraints in the usual IP way, as
 
 $$
 \begin{align*}
