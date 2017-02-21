@@ -49,6 +49,14 @@ $$
 
 where $$c_k$$ is some score associated with each word.  For example if we had some trendy, never-before-used phrase that we wanted to make sure made it into our next puzzle, we'd give it $$c_k = 100$$, and some awful crosswordese like "oleo" we'd give $$c_k = 1$$.  Etc.  And that's it!
 
+## Advantages of the IP approach
+
+This formulation allows us to very easily incorporate two vital parts of crossword construction:  specifying word-to-slot assignments in advance, and/or specifying that certain words make it into the puzzle somewhere.
+
+The word-to-slot assignment is easy: just set $$z_{k,m}=1$$ as an additional constraint, where $$k$$ is the word you need and $$m$$ is the desired slot.  Voila.
+
+The "make sure this word is in the puzzle anywhere" is also straightforward, and can be done two non-equivalent ways.  The "soft" way would be to just increase the value $$c_k$$ of the desired word sky-high, so the optimizer *really* wants to include it in the puzzle.  The "hard" way would be to actually include another constraint, $$\sum_m z_{k,m} = 1$$ for the desired $$k$$, so that exactly *one* of the decision variables corresponding to that word is turned on.
+
 
 ## Implementation in Python
 
@@ -62,6 +70,31 @@ However, although it works, it can only manage grids that are $$3\times 3$$ or $
 4. Improve the word list and add points per word. Since most of a crossword maker's struggle (I'm told) is getting a good, well-sorted word list. Currently I'm using a ``ospd.txt file with a few thousand words, most of which are crummy/archaic, and assigning each word a random score.
 
 Another thing the code doesn't implement is creating the grid itself.  My code takes a predefined grid as input, but ideally, we just feed the optimization a word list, and it figures out where to put the grid squares on its own.  This introduces a new slew of constraints: for example, crossword grids are symmetric, they must have either rotational or reflectional symmetry.
+
+Anyway, the code as-is can be run like this:
+```python
+from ipxword import Grid, IPXWordGenerator
+G = Grid(3, blacksq=[(0,0)])
+ipx = IPXWordGenerator(G, numk=500)
+ipx.build()
+```
+which creates a $$3\times 3$$ grid with a single black square in the top left corner, and then attempts to fill it with 500 words sampled randomly from the `ospd.txt` file (with random word scores).  This will output something like
+```
+Assignments: (index, (slot), word)
+(64, (1, 'down'), 'eau')
+(165, (2, 'down'), 'hyp')
+(258, (0, 'down'), 'by')
+(279, (2, 'across'), 'yup')
+(327, (0, 'across'), 'eh')
+(473, (1, 'across'), 'bay')
+```
+(like I said, the word list is pretty awful), which is the following little toy puzzle:
+```
+# E H
+B A Y
+Y U P
+```
+Yup!
 
 That's all for now.  If you have comments, questions feel free to message me on [Twitter](http://twitter.com/thestevemo).  Thanks for reading!
 
