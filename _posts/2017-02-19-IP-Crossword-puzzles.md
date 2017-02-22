@@ -62,7 +62,7 @@ The "make sure this word is in the puzzle anywhere" is also straightforward, and
 
 To implement this in Python, I tried to stay away from any unnecessary dependencies, so I used pure base Python and the `pulp` package for the integer optimization.  All the code is in a [Github repo over here](http://github.com/stmorse/ip-crossword) so I won't bore you with the coding details, but I basically wrote a `Grid` class to handle all the messy grid manipulation, a couple dicts with preprocessing information, and a code chunk with the IP formulation as just described.
 
-However, although it works, it can only manage grids that are $$3\times 3$$ or $$4\times 4$$, not much bigger.  I think this is due to a couple non-formulation related problems that I'd like to fix:
+However, although it works, it can only manage grids that are $$3\times 3$$ and $$4\times 4$$ (or even $$5\times 5$$ if you put black squares in the right spots) but not much bigger.  I think this is due to a couple non-formulation related problems that I'd like to fix:
 
 1. Improve the grid handling --- currently very hacky, using base Python, lots of list comprehensions and loops ... blech.
 2. Use something better than the default solver for `PuLP`.
