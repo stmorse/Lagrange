@@ -24,6 +24,8 @@ For example, there is exactly one tall-white-circular-solid piece.  The board be
 
 According to various sources, the game was solved in 1998 by Luc Goossens, and is a draw for both players assuming perfect play. I haven't been able to find an archived copy of the paper.
 
+![]("{{ site.baseurl }}/images/quartoboard.png")
+
 
 ### Counting things
 
@@ -258,7 +260,7 @@ The permutation set $$H$$ for the Quarto pieces is very interesting. Why is it w
 
 We'd like to relate the space to some object, and then use a well known dihedral group to represent the symmetries. (Instead of using a clunky flat matrix.)  A good analogy is to use a 4-cube, or tesseract, and think of the binary numbers as the coordinates of the vertices of the cube in 4-space. Then if you choose a vertex $$v$$, $$A_v$$ are the adjacent vertices, $$B_v$$ are the vertices 2 steps away, $$C_v$$ are the vertices 3 steps away, and $$D_v$$ is the vertex on the opposite side of the 4-cube. Thus, $$H$$ seems to be the dihedral group of a 4-cube.
 
-![]({{ site.baseurl }}/images/Hypercubeorder_binary.png)
+![]("{{ site.baseurl }}/images/Hypercubeorder_binary.png")
 
 Like all things, in hindsight, this is quite obvious.  We have a 16-element set, and we are trying to identify symmetries.  Of course this should correspond to the 16-element set called the coordinates of a 4-cube in Euclidean space!  Of course!
 
