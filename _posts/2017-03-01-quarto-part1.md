@@ -60,9 +60,9 @@ where $$c(g)$$ is the number of cycles in the permutation $$g$$.  If we think of
 
 We can easily verify the formula by hand for a $$2\times 2$$ board (number distinct orbits $$=6$$), or even a $$3\times 3$$ board (distinct orbits $$=102$$).  Example: the distinct boardstates of a $$2\times 2$$ board are:
 ```
- x \vert  x    o \vert  x    o \vert  x    o \vert  o    o \vert  o    o \vert  o
- --+--    --+--    --+--    --+--    --+--    --+--
- x \vert  x    x \vert  x    x \vert  o    x \vert  x    o \vert  x    o \vert  o
+ x | x    o | x    o | x    o | o    o | o    o | o
+ --|--    --|--    --|--    --|--    --|--    --|--
+ x | x    x | x    x | o    x | x    o | x    o | o
 ```
 But for our $$4\times 4$$ case, we'll rely on the formula.
 
