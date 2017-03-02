@@ -7,7 +7,9 @@ tags: [projects, quarto, puzzles, mathematics]
 
 ## What is Quarto?
 
-This post outlines some frivolous math things related to the game *Quarto*.  My wife got me this game for Christmas, and kept beating me at it, so I decided to study the math and structure of the game in hopes of gaining an edge.  She still beats me at it regularly, but the math is interesting.  (I plan on posting a "Part 2" with a Java implementation of a simple playable AI for the game.)
+This post outlines some frivolous math things related to the game *Quarto*.  My wife got me this game for Christmas, and kept beating me at it, so I decided to study the math and structure of the game in hopes of gaining an edge.  She still beats me at it regularly, but the math is interesting.  
+
+(I plan on posting a "Part 2" with a Java and/or Python implementation of a simple playable AI for the game, based on some older work I have up [on Github](https://github.com/stmorse/quarto).)
 
 *Quarto* is a 2-player game invented by Blaise Muller, a Swiss mathematician and game designer. It consists of a $$4\times 4$$ board and 16 pieces. Each piece is a unique combination of four attributes:
 
