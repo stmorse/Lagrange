@@ -29,7 +29,7 @@ You can also show that the number of events in disjoint subsets are independent 
 
 For this, we introduce the *Hawkes process*, which gives an additive, decaying increase to the intensity function for each new arrival.  Now, the intensity function is only *conditionally* Poisson: that is, given the history of events $$\{t_i\}$$ up to $$t$$, the conditional intensity at $$t$$, that is $$\lambda(t ; t_i < t)$$, is Poisson.
 
-**Definition.** *Hawkes process*  Consider a sequence of events $$\{(t_i, u_i)\}_{i=1}^n$$ consisting of a time $$t_i$$ and dimension $$u_i$$ (i.e. the $$i$$-th event occurred at time $$t_i$$ in dimension $$u_i$$), for $$t_i\in\mathbb{R}^+$$ and $$u_i\in \mathcal{U}=\{1,2,...,U\}$$.  This sequence is a Hawkes process* if the conditional intensity function has the parameterized form
+**Definition.** *Hawkes process*.  Consider a sequence of events $$\{(t_i, u_i)\}_{i=1}^n$$ consisting of a time $$t_i$$ and dimension $$u_i$$ (i.e. the $$i$$-th event occurred at time $$t_i$$ in dimension $$u_i$$), for $$t_i\in\mathbb{R}^+$$ and $$u_i\in \mathcal{U}=\{1,2,...,U\}$$.  This sequence is a *Hawkes process* if the conditional intensity function has the parameterized form
 
 $$
 \lambda_u (t; \Theta) = \mu_u + \sum_{i:t_i < t} h_{uu_i}(t-t_i; \theta_{uu_i})
