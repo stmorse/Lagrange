@@ -18,7 +18,7 @@ A challenge in large-scale passive-collection communication datasets is inferrin
 
 Another approach is to define a probabilistic model of the network interaction structure and learn its parameters.  We can model communication events as arrivals in a stochastic process that is dependent on its immediate history (e.g. A calls B increases the probability B calls A back) and other processes (e.g. A to B increases the probability of B to C); in particular the <i>Hawkes process</i>.  In <a href="{{ site.baseurl }}/docs/6-867-final-writeup.pdf">this project</a> we explore the predictive power of univariate Hawkes processes applied to the persistent cascades from above, learning the parameters with a regularized MAP EM scheme.  <a href="https://github.com/stmorse/hawkes">Repo here</a>, and a <a href="https://stmorse.github.io/journal/Hawkes-python.html">blog post</a> about it.
 
-In my (recently completed!) <a href="{{ site.baseurl }}/docs/orc-thesis">masters thesis</a>, I expand on both of these topics.  E.g. we can extend techniques from percolation theory to model the idea of "persistence" in cascading patterns, and we apply the method to the Hillary Clinton emails and find hidden influencers.  We also extend the MAP EM approach for parameter estimation of a Hawkes process to the multivariate case.  
+In my (recently completed!) <a href="{{ site.baseurl }}/docs/orc-thesis.pdf">masters thesis</a>, I expand on both of these topics.  E.g. we can extend techniques from percolation theory to model the idea of "persistence" in cascading patterns, and we apply the method to the Hillary Clinton emails and find hidden influencers.  We also extend the MAP EM approach for parameter estimation of a Hawkes process to the multivariate case.  
 
 <hr>
 
