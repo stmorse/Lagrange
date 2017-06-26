@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Python package for Hawkes processes"
+title: "Python class for Hawkes processes"
 categories: journal
 tags: [projects, machine learning, mathematics, hawkes]
 ---
 
-This post is about a stochastic process called the Hawkes process.  I offer some Python code for generating synthetic sequences and doing parameter estimation (posted [ LINK ] on Github), and also cover some theoretical preliminaries.
+This post is about a stochastic process called the Hawkes process.  I [offer some Python code](https://github.com/stmorse/hawkes) for generating synthetic sequences and doing parameter estimation, and also cover some theoretical preliminaries.
 
 I am using the Hawkes process in some [on-going research](https://stmorse.github.io/research) --- I found that it is popular enough to have a large, interdisciplinary literature, but specialized enough that the available software packages are few and far between.  At the [end of this blog](#end), I link to several repos already out there for this family of models.  In general they are high quality, production-level packages, but are in my opinion overkill for someone just getting started and needing some basic code to fiddle with.
 
 I'm hoping to bridge this gap by offering both a beginner-friendly math exposition and an immediately useable, if relatively basic, code library in Python.
 
-<img align="center" width="75%" src="{{ site.github.url }}/images/example_hawkes_poisson.png" alt="Hawkes Poisson comparison">
+<img align="center" width="100%" src="{{ site.github.url }}/images/example_hawkes_poisson.png" alt="Hawkes Poisson comparison">
 
 
 # Prelims
@@ -27,7 +27,7 @@ You can also show that the number of events in disjoint subsets are independent 
 
 **However,** the memoryless property of Poisson processes means that it is unable to capture a dependence on history, or in other words, interaction between events.  For example, we may want the event of an arrival to **increase the probability of arrivals in the next small interval of time.**  
 
-For this, we introduce the *Hawkes process*, which gives an additive, decaying increase to the intensity function for each new arrival.  Now, the intensity function is only *conditionally* Poisson: that is, given the history of events $$\{t_i\}$$ up to $$t$$, the conditional intensity at $$t$$, $$\lambda(t | t_i < t)$$, is Poisson.
+For this, we introduce the *Hawkes process*, which gives an additive, decaying increase to the intensity function for each new arrival.  Now, the intensity function is only *conditionally* Poisson: that is, given the history of events $$\{t_i\}$$ up to $$t$$, the conditional intensity at $$t$$, that is $$\lambda(t ; t_i < t)$$, is Poisson.
 
 **Definition.** *Hawkes process*  Consider a sequence of events $$\{(t_i, u_i)\}_{i=1}^n$$ consisting of a time $$t_i$$ and dimension $$u_i$$ (i.e. the $$i$$-th event occurred at time $$t_i$$ in dimension $$u_i$$), for $$t_i\in\mathbb{R}^+$$ and $$u_i\in \mathcal{U}=\{1,2,...,U\}$$.  This sequence is a Hawkes process* if the conditional intensity function has the parameterized form
 
@@ -52,7 +52,7 @@ and we might even set $$\omega_{uu'} = \omega$$ globally, and only tune the $$\a
 
 A univariate example is given above, and compared to a Poisson process with the same base rate $$\mu$$.  In the Hawkes process, we see that events cause a spike in the intensity $$\lambda(t)$$, which frequently leads to more events, more spikes ... this results in a **burst** of activity (which happens to well-model the actual way many event sequences behave, such as the communication habits of people).
 
-<img align="center" width="75%" src="{{ site.github.url }}/images/example_multivar.png" alt="Multivariate example">
+<img align="center" width="100%" src="{{ site.github.url }}/images/example_multivar.png" alt="Multivariate example">
 
 In the multivariate example above, we have 3 different streams of events, call them $$e_0$$, $$e_1$$, and $$e_2$$.  We have engineered it by setting the parameters such that $$e_0$$ has an influence on itself and $$e_1$$, and $$e_1$$ has an influence on $$e_2$$.  We also set the background rate to zero for all the streams except for $$e_0$$ --- this way, if we see an event on $$e_1$$ or $$e_2$$ we know it came from a previous event on the parent stream, not a random event.
 
@@ -66,7 +66,7 @@ How did we generate the data in the figures above?  A well-worn approach is know
 
 In the multivariate case, this is only slightly more complicated, since we must also attribute each generated event to a particular dimension based on the proportional likelihood the new event came from that dimension.  In expositions like [this excellent slide deck](http://lamp.ecp.fr/MAS/fiQuant/ioane_files/HawkesCourseSlides.pdf), these two steps are called Reject-Attribute.
 
-The details are apparent in [ THE CODE LINK ], but let us mention two important modifications.
+The details are apparent in [the repo](https://github.com/stmorse/hawkes), but let us mention two important modifications.
 
 The algorithm as typically described requires $$O(n^2 U^2)$$ operations to draw $$n$$ samples over $$U$$ dimensions, which is prohibitive for large $$n$$ or $$U$$.  Instead, we modify an approach mentioned in [this paper](https://arxiv.org/pdf/1406.0516.pdf).  Given the rates at the last event $$t_k$$ (which note do not include effects of $$t_k$$), we can calculate $$\lambda(t)$$ for $$t>t_k$$ by 
 
@@ -82,7 +82,7 @@ $$
 
 or in other words, the previous rate plus the maximum contribution the event $$t_k$$ can make since it has just occurred.
 
-Secondly, we find that texts describing the algorithm typically frame the attribution/rejection test as finding an index $$n_0$$ such that a uniformly random number on $$[0,1]$$ is between the normalized successive sums of intensities around that index.  But note that this entire procedure amounts to a weighted random sample over the integers $$1,2,...,U+1$$ where the probabilities are the normalized rates, and selecting $$U+1$$ is equivalent to the ``rejection'' condition.  This allows us to use optimized package software for weighted random samples, instead of something like a for-loop (as is present in even production-level Hawkes process software, like the R `hawkes` package [linked below](#end)).
+Secondly, we find that texts describing the algorithm typically frame the attribution/rejection test as finding an index $$n_0$$ such that a uniformly random number on $$[0,1]$$ is between the normalized successive sums of intensities around that index.  But note that this entire procedure amounts to a weighted random sample over the integers $$1,2,...,U+1$$ where the probabilities are the normalized rates, and selecting $$U+1$$ is equivalent to the ``rejection'' condition.  This allows us to use optimized package software for weighted random samples, instead of something like a for-loop (as is present in even production-level Hawkes process software, like the `hawkes` package in R [see below](#end)).
 
 
 
@@ -109,9 +109,9 @@ Some papers using this approach in [seismology](http://escholarship.org/uc/item/
 
 4. **Maximum aposteriori (MAP) EM.**  We can incorporate some regularization into the EM framework by introducing a prior and doing MAP EM.  This is a simple extension of the EM methods, but allows us to reasonably estimate in the multivariate case.  This extension comes up as majorization-minimization in [this paper](http://proceedings.mlr.press/v28/zhou13.pdf), and it is the subject of an unpublished report I did with my colleague [Phil Chodrow](https://philchodrow.github.io) last year [posted here](https://stmorse.github.io/docs/6-867-final-writeup.pdf).  I extend this to a multivariate version that is discussed in my masters thesis [here](https://stmorse.github.io/docs/orc-thesis.pdf).
 
-The repo includes this MAP EM approach.  It is still a bit rough: it treats $$\omega$$ as a global hyperparameter, does not incorporate a prior on the background rates $$\mu$$, and I think the expression I am using for the "complete data log-likelihood" in the multivariate case is actually a tight lower bound on the real value as they show [here](http://proceedings.mlr.press/v28/zhou13.pdf).
+[The repo](https://github.com/stmorse/hawkes) includes this MAP EM approach.  It is still a bit rough: it treats $$\omega$$ as a global hyperparameter, does not incorporate a prior on the background rates $$\mu$$, and I think the expression I am using for the "complete data log-likelihood" in the multivariate case is actually a tight lower bound on the real value as they show [here](http://proceedings.mlr.press/v28/zhou13.pdf).
 
-Hopefully it is helpful/interesting to you!
+Hopefully it is helpful/interesting to you!  Feel free to send any feedback/questions, via [Twitter](http://twitter.com/thestevemo) or an email (see [my about page](https://stmorse.github.io)).
 
 
 
