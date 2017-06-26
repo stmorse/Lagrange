@@ -7,16 +7,18 @@ My current research interests are in complex systems, machine learning, and opti
 
 <hr>
 
-## Information spread
+## Information spread and influence structure
 
 <img align="left" width="50%" src="{{ site.baseurl }}/images/persistent.png" alt="persistent cascades">
 
-A challenge in large-scale passive-collection communication datasets is inferring the true information spreading structure, or latent network.   We know A called B, but not why, or whether this influences B to call C.  One method to extract meaningful structure is to look for recurring patterns: imagine if we see A call B and C, who call D and E, and then the same pattern (or something very similar) occurs again every week or two over the course of several months.  Using methods of inexact tree matching and hierarchical clustering, we define, find, and analyze these group conversations (termed "persistent cascades") and show they reveal new roles in network topology and spreading dynamics.
+A challenge in large-scale passive-collection communication datasets is inferring the true influence structure, or latent network.   We know A called B, but not why, or whether this influences B to call C.  One method to extract meaningful structure is to look for recurring patterns: imagine if we see A call B and C, who call D and E, and then the same pattern (or something very similar) occurs again every week or two over the course of several months.  Using methods of inexact tree matching and hierarchical clustering, we define, find, and analyze these group conversations (termed "persistent cascades") and show they reveal new roles in network topology and spreading dynamics.  <a href="https://github.com/stmorse/cascades">Repo here.</a>.
 
-<a href="{{ site.baseurl }}/docs/BigD348.pdf">Paper (accepted)</a>&nbsp;&nbsp;&#8226;&nbsp;
+<a href="{{ site.baseurl }}/docs/BigD348.pdf">Paper</a>&nbsp;&nbsp;&#8226;&nbsp;
 <a href="{{ site.baseurl }}/docs/persistent-cascades-ieee.pdf">Slides</a>
 
-Another approach is to define a probabilistic model of the network interaction structure and learn its parameters.  We can model communication events as arrivals in a stochastic process that is dependent on its immediate history (e.g. A calls B increases the probability B calls A back) and other processes (e.g. A to B increases the probability of B to C); in particular the <i>Hawkes process</i>.  In <a href="{{ site.baseurl }}/docs/6-867-final-writeup.pdf">this project</a> we explore the predictive power of univariate Hawkes processes applied to the persistent cascades from above, learning the parameters with a regularized MAP EM scheme.  Current work is to extend this model to the multivariate case, with a process on each edge in the network.
+Another approach is to define a probabilistic model of the network interaction structure and learn its parameters.  We can model communication events as arrivals in a stochastic process that is dependent on its immediate history (e.g. A calls B increases the probability B calls A back) and other processes (e.g. A to B increases the probability of B to C); in particular the <i>Hawkes process</i>.  In <a href="{{ site.baseurl }}/docs/6-867-final-writeup.pdf">this project</a> we explore the predictive power of univariate Hawkes processes applied to the persistent cascades from above, learning the parameters with a regularized MAP EM scheme.  <a href="https://github.com/stmorse/hawkes">Repo here</a>, and a <a href="https://stmorse.github.io/journal/Hawkes-python.html">blog post</a> about it.
+
+In my (recently completed!) <a href="{{ site.baseurl }}/docs/orc-thesis">masters thesis</a>, I expand on both of these topics.  E.g. we can extend techniques from percolation theory to model the idea of "persistence" in cascading patterns, and we apply the method to the Hillary Clinton emails and find hidden influencers.  We also extend the MAP EM approach for parameter estimation of a Hawkes process to the multivariate case.  
 
 <hr>
 
