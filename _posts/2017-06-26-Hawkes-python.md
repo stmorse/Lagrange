@@ -2,6 +2,7 @@
 layout: post
 title: "Python class for Hawkes processes"
 categories: journal
+date: 2017-06-26
 tags: [projects, machine learning, mathematics, hawkes]
 ---
 
