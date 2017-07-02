@@ -29,7 +29,7 @@ According to various sources, the game was solved in 1998 by Luc Goossens, and i
 <img align="center" width="75%" src="{{ site.github.url }}/images/quartoboard.jpg" alt="Quarto board">
 
 
-### Counting things
+# Counting things
 
 But let's think about how big this game is --- how many unique possible games are there?  First let's assume all pieces are the same, and we just care where the pieces are on the board.  Second, let's consider all 16 different types of pieces, and then try counting how many variations we have.
 
@@ -62,9 +62,9 @@ where $$c(g)$$ is the number of cycles in the permutation $$g$$.  If we think of
 
 We can easily verify the formula by hand for a $$2\times 2$$ board (number distinct orbits $$=6$$), or even a $$3\times 3$$ board (distinct orbits $$=102$$).  Example: the distinct boardstates of a $$2\times 2$$ board are:
 ```
- x | x    o | x    o | x    o | o    o | o    o | o
- --|--    --|--    --|--    --|--    --|--    --|--
- x | x    x | x    x | o    x | x    o | x    o | o
+x | x    o | x    o | x    o | o    o | o    o | o
+--|--    --|--    --|--    --|--    --|--    --|--
+x | x    x | x    x | o    x | x    o | x    o | o
 ```
 But for our $$4\times 4$$ case, we'll rely on the formula.
 
@@ -97,12 +97,12 @@ The group of possible permutations is $$G=\{e, r, r^2, r^3, f, rf, r^2 f, r^3 f\
 
 $$
 \vert Y^X / G\vert  = \frac{1}{8} 
-	\Big( 2^16 + 2^4 + 2^8 + 2^4 + 2^8 + 2^6 + 2^8 + 2^6\Big) = 8,308
+	\Big( 2^{16} + 2^4 + 2^8 + 2^4 + 2^8 + 2^6 + 2^8 + 2^6\Big) = 8,308
 $$
 
 the number of distinct boardstates.
 
-So the formula is kind of saying: how many distinct board-states are there without regard to symmetry? $$2^{16}$$.  How many distinct single rotations can we do? $$2^4$$.  etc. etc. Sum these up and divide out by (``norm by'') the number of different symmetries we considered.
+So the formula is kind of saying: how many distinct board-states are there without regard to symmetry? $$2^{16}$$.  How many distinct single rotations can we do? $$2^4$$.  etc. etc. Sum these up and divide out by ("norm by") the number of different symmetries we considered.
 
 
 
