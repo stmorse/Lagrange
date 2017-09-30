@@ -11,7 +11,7 @@ The idea of an "artificial neural network" --- that is, a networked series of tr
 
 NNs are now so ubiquitous that even [that actress from Twilight](https://en.wikipedia.org/wiki/Kristen_Stewart) has [a paper](https://arxiv.org/abs/1701.04928) using them (credit [Andrew Beam's great post](https://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html) for this find).  
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V1eYniJ0Rnk" frameborder="0" allowfullscreen></iframe>
+<iframe align="center" width="560" height="315" src="https://www.youtube.com/embed/V1eYniJ0Rnk" frameborder="0" allowfullscreen></iframe>
 
 This post will attempt to demystify the inner workings of this trend in machine learning by giving a rudimentary theoretical background on how NNs work.  My aim is to make the material accessible to an elective-level undergraduate audience focusing in applied mathematics or computer science.  Most of the exposition is based heavily on that in MIT's [course 6.867](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-867-machine-learning-fall-2006/).
 
@@ -20,9 +20,9 @@ This post will attempt to demystify the inner workings of this trend in machine 
 
 A neural network (NN) consists of many small, simple computational units called *neurons* or *nodes* that perform simple tasks.  Each neuron takes a scalar input, passes it through some transformation (like a sigmoid, or many others, which we will cover later), and spits out a scalar output.  The NN is in this sense a "black box": we feed an input, it returns an output.  
 
-Our data consists of a set of pairs $$(x^{(i)}, y^{(i)})$$ where $$x^{(i)}$$ is the vector (ordered list) of scalar values for the $$i$$-th entry, and $$y^{(i)}$$ is the corresponding target value.  We typically consider $$x^{(i)}\in\R^d$$, where $$d$$ is the dimension of the independent variable, and denote the $$j$$-th feature of the $$i$$-th data point as $$x_j^{(i)}$$.  
+Our data consists of a set of pairs $$(x^{(i)}, y^{(i)})$$ where $$x^{(i)}$$ is the vector (ordered list) of scalar values for the $$i$$-th entry, and $$y^{(i)}$$ is the corresponding target value.  We typically consider $$x^{(i)}\in\mathbb{R}^d$$, where $$d$$ is the dimension of the independent variable, and denote the $$j$$-th feature of the $$i$$-th data point as $$x_j^{(i)}$$.  
 
-Our target values $$y^{(i)}$$ will either be scalar, i.e. $$y^{(i)}\in\R$$, or they will take values from some finite set, i.e. $$y^{(i)}\in S$$.  The scalar case is called *regression* (think linear regression), while the finite-set case is called *classification* (since the set usually corresponds to different classes or types of points).
+Our target values $$y^{(i)}$$ will either be scalar, i.e. $$y^{(i)}\in\mathbb{R}$$, or they will take values from some finite set, i.e. $$y^{(i)}\in S$$.  The scalar case is called **regression** (think linear regression), while the finite-set case is called **classification** (since the set usually corresponds to different classes or types of points).  We'll focus on regression in this post, and classification in the sequel.
 
 Our task is to develop a model such that given a previously unseen $$x^{new}$$, we can accurately predict $$y^{new}$$.  We will assume we are given some block of data on which to train our model (the "training data"), and will be testing our model an unseen block of data (the "testing data").  And because this is a post about neural networks, we decide that the best model to use for this is ... a neural network.
 
@@ -60,7 +60,7 @@ $$
 \text{Activate:} \quad a_i = f(z_i)
 $$
 
-where $$f(z_i)$$ is the *activation function* of the neuron.  Now note that if we make $$f(z_i)=z_i$$, then each neuron is just a linear transformation of its inputs, and we'll just get a giant linear regression!  Instead, we typically use non-linear activation functions.  Examples: the function $$f(z_i) = \text{max}(0, z_i)$$ is called the *rectifier* and we would call this neuron a *rectified linear unit* or ReLU.  Another popular choice is the *sigmoid* function $$f(z_i) = 1/(1+e^{-z_i})$$.  Intuitively, the ReLU "zeros out" any negative input (and does nothing to positive input), while the sigmoid transforms any input to the range $$[0,1]$$.
+where $$f(z_i)$$ is the *activation function* of the neuron.  Now note that if we make $$f(z_i)=z_i$$, then each neuron is just a linear transformation of its inputs, and we'll just get a giant linear regression!  Instead, we typically use [non-linear activation functions](https://en.wikipedia.org/wiki/Activation_function).  Examples: the function $$f(z_i) = \text{max}(0, z_i)$$ is called the *rectifier* and we would call this neuron a *rectified linear unit* or ReLU.  Another popular choice is the *sigmoid* function $$f(z_i) = 1/(1+e^{-z_i})$$.  Intuitively, the ReLU "zeros out" any negative input (and does nothing to positive input), while the sigmoid transforms any input to the range $$[0,1]$$.
 
 Finally, the single output neuron receives all these $$a_i$$'s and computes
 
@@ -100,9 +100,9 @@ $$
 
 A cautionary note here: don't forget that our domain is the parameter space, $$\theta=(\theta_i)$$.  We are used to seeing $$x$$ as the domain and $$y$$ as the range, but in this case (and as is typical in machine learning), the $$x$$'s and $$y$$'s are static datapoints, and it is the $$\theta$$'s that we are moving around in (the domain), measuring our progress in terms of $$\sum_i \ell(y^{(i)}, F(x^{(i)}))$$ (the range).
 
-A second cautionary note: don't forget that $$\theta$$ is a vector of all our parameters, and the gradient $$\grad_{\theta} \ell$$ is a vector of partial derivatives with respect to each of those different parameters.
+A second cautionary note: don't forget that $$\theta$$ is a vector of all our parameters, and the gradient $$\nabla_{\theta} \ell$$ is a vector of partial derivatives with respect to each of those different parameters.
 
-What is **magical** about SGD is that we can take a step like this at some random data point, update our parameter estimate $$\theta$$, then pick *any other random data point* and do it again, iterating.  And magically, we will eventually converge to a minimum. (Well, as long as some conditions are met such as tuning our learning rates $\eta$ correctly..)
+What is **magical** about SGD is that we can take a step like this at some random data point, update our parameter estimate $$\theta$$, then pick *any other random data point* and do it again, iterating.  And magically, we will eventually converge to a minimum. (Well, as long as some conditions are met such as tuning our learning rates $$\eta$$ correctly..)
 
 **Sidenote:** There is [growing evidence](https://www.quantamagazine.org/new-theory-cracks-open-the-black-box-of-deep-learning-20170921/) that one reason neural networks work so well, or more specifically, the reason they do not overfit despite their enormous number of parameters, is due to the [tendency of SGD to find "flat" optimums](http://www.inference.vc/everything-that-works-works-because-its-bayesian-2/), as opposed to "pointy" ones.
 
@@ -210,3 +210,17 @@ Altogether, the procedure for training a NN is to
 6. **Gradient step.** Using the gradients, take a (stochastic) gradient step and update the parameters based on the training pair.  Return to step 1.
 
 
+### Practical considerations
+
+A few quick implementation considerations:
+
+1. Initializing the weights.  Since the loss function is highly nonconvex, it is essential to take care in initializing our startpoint, i.e., our initial parameter values.  For example, when using ReLUs, if we initialize all our weights to zero, then all our activation function inputs will always be zero and therefore our outputs will always be zero and will never change despite any number of training data.  One better choice is to initialize the weights by sampling from a Gaussian distribution with mean zero and variance based on the number of neurons in a particular layer (for example, setting variance $$\sigma^2 = 1/m$$).  It can be shown that this causes the variance of the output to varies in proportion to the variance of the input.
+
+2. Regularization.  The enormous number of parameters inherent to a NN encourages "overfitting" to the training data.  As mentioned, SGD may help prevent this, but another technique is to introduce a **regularizer** in our loss function, for example by penalizing large weights by adding a norm on the weights to the loss function.
+
+3. Dropout.  Another popular type of regularization is called "dropout," where we randomly turn-off neurons during training.  In this scheme, neurons rely on signals from their neighbors on the importance of particular connections.  This methodology requires adjustments to both the feedforward and backprop implementations.
+
+
+## Further reading
+
+There are many other fine [tutorials](http://neuralnetworksanddeeplearning.com/chap1.html) around the web for dipping one's toe in the water of neural networks, most of them [more detailed](http://www.deeplearning.net/tutorial/mlp.html) than the one presented here.  My aim was not to be thorough, but friendly, and to cover all the relevant ideas in a short, digestible post.  If you know of other good resources for my intended audience (undergraduates), I'd be happy to add them here, please contact me via email or Twitter.  Thanks for reading!
