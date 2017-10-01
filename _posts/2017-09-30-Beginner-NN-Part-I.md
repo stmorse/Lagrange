@@ -20,7 +20,7 @@ This post will attempt to demystify the inner workings of this trend in machine 
 
 A neural network (NN) consists of many small, simple computational units called *neurons* or *nodes* that perform simple tasks.  Each neuron takes a scalar input, passes it through some transformation (like a sigmoid, or many others, which we will cover later), and spits out a scalar output.  The NN is in this sense a "black box": we feed an input, it returns an output.  
 
-Our data consists of a set of pairs $$(x^{(i)}, y^{(i)})$$ where $$x^{(i)}$$ is the vector (ordered list) of scalar values for the $$i$$-th entry, and $$y^{(i)}$$ is the corresponding target value.  We typically consider $$x^{(i)}\in\mathbb{R}^d$$, where $$d$$ is the dimension of the independent variable, and denote the $$j$$-th feature of the $$i$$-th data point as $$x_j^{(i)}$$.  
+Our data consists of a set of pairs $$\{(x^{(i)}, y^{(i)})\}$$ where $$x^{(i)}$$ is the vector (ordered list) of scalar values for the $$i$$-th entry, and $$y^{(i)}$$ is the corresponding target value.  We typically consider $$x^{(i)}\in\mathbb{R}^d$$, where $$d$$ is the dimension of the independent variable, and denote the $$j$$-th feature of the $$i$$-th data point as $$x_j^{(i)}$$.  
 
 Our target values $$y^{(i)}$$ will either be scalar, i.e. $$y^{(i)}\in\mathbb{R}$$, or they will take values from some finite set, i.e. $$y^{(i)}\in S$$.  The scalar case is called **regression** (think linear regression), while the finite-set case is called **classification** (since the set usually corresponds to different classes or types of points).  We'll focus on regression in this post, and classification in the sequel.
 
