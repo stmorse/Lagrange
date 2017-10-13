@@ -8,7 +8,7 @@ tags: [projects, machine learning, mathematics, hawkes]
 
 This post is about a stochastic process called the Hawkes process.  I [offer some Python code](https://github.com/stmorse/hawkes) for generating synthetic sequences and doing parameter estimation, and also cover some theoretical preliminaries.
 
-I am using the Hawkes process in some [on-going research](https://stmorse.github.io/research) --- I found that it is popular enough to have a large, interdisciplinary literature, but specialized enough that the available software packages are few and far between.  At the [end of this blog](#end), I link to several repos already out there for this family of models.  In general they are high quality, production-level packages, but are in my opinion overkill for someone just getting started and needing some basic code to fiddle with.
+I am using the Hawkes process in some [on-going research](https://stmorse.github.io/research) --- I found that it is popular enough to have a large, interdisciplinary literature, but specialized enough that the available software packages are few and far between.  At the [end of this blog](#end), I link to several repos already out there for this family of models.  They are high quality, production-level packages, and miles beyond what I offer here, but are in my opinion overkill for someone just getting started and needing some basic code to fiddle with.
 
 I'm hoping to bridge this gap by offering both a beginner-friendly math exposition and an immediately useable, if relatively basic, code library in Python.
 
@@ -119,6 +119,8 @@ Hopefully it is helpful/interesting to you!  Feel free to send any feedback/ques
 # <a name="end"></a>Further resources
 
 Some of what's out there, that I've found:
+
+- [Tick](https://x-datainitiative.github.io/tick/) is a **Python** library for statistical learning of point processes, with some additional optimization toolkit tools as well.  This library was recently brought to my attention, but from what I can tell it is likely the best of the libraries I list here, in terms of completeness and documentation.  
 
 - Package `hawkes` (for **R**), [CRAN here](https://cran.r-project.org/web/packages/hawkes/index.html).  Core functions are: a `simulationHawkes` function to generate sequences, and a `likelihoodHawkes` function which returns the (negative) likelihood of a particular sequence.   All functions support both uni- and muti-variate sequences.  The sequence generation uses [Ogata thinning](https://pdfs.semanticscholar.org/9fb1/0a3c2dcec939784ce208e0e7e7fda4be895c.pdf), as we discussed before.  The likelihood can be used with R's `optimize` function for a rough MLE parameter estimation approach.  I have not done extensive testing of this package myself, but it seems valuable to have a sister package offering this functionality in Python.
 
