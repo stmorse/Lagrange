@@ -145,7 +145,7 @@ A few stories here:  high scorers are unsurprisingly in higher standing than low
 
 I thought about redoing the above process in R, but realized [@DTDusty](https://twitter.com/dtdusty) already did it better: check out his blog [over here](https://dusty-turner.netlify.com/post/mathlete-fantasy-football-analysis/).  Here's a teaser pic, whose filename let the reader note is `dusty_fantasy.png` ... 
 
-<img align="center" width="100%" src="{{ site.github.url }}/images/dusty_fantasy.png" alt="More fantasy plots (in R)">
+<img align="center" width="100%" src="{{ site.github.url }}/images/fantasy_dusty.png" alt="More fantasy plots (in R)">
 
 
 
