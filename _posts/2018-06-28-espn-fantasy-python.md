@@ -38,7 +38,7 @@ Let's walk through this line by line.  Import the `requests` package.  Initializ
 
 The GET request above, with parameters, is essentially equivalent to if you entered the following URL into a browser:
 
-`http://games.espn.com/ffl/api/v2/scoreboard?leagueId=123456?seasonId=2018?matchupPeriodId=1`
+`http://games.espn.com/ffl/api/v2/scoreboard?leagueId=123456&seasonId=2017&matchupPeriodId=1`
 
 and then saved the resulting text (which notice is in a JSON format).
 
@@ -172,7 +172,15 @@ Another rabbit hole to explore is the various other "endpoints" to the API besid
 * livescoring (doesn't seem to be working right)
 * boxscore
 
-Each of these can be appended to the ESPN API URL and be explored.  I'm most interested in `boxscore` which contains the weekly points by player.  However, it only returns the full information if you are logged into an account, which I've been unable to do through a GET request.  It is possible to send `espn_s2` cookies, `swid`, and other info in the GET request, but I haven't gotten these to work.   If you've cracked the code on this, please let me know.  See this [Reddit thread](https://www.reddit.com/r/fantasyfootball/comments/56u8bc/espn_fantasy_football_api_wrapper_for_python_3/) for more discussion.
+Each of these can be appended to the ESPN API URL and be explored.  
+
+I'm most interested in `boxscore` which contains the weekly points by player.  However, it only returns the full information if you are logged into an account, which I've been unable to do through a GET request.  Try it: log in to your ESPN account, and then enter the API URL
+
+`http://games.espn.com/ffl/api/v2/boxscore?leagueId=123456&seasonId=2017&matchupPeriodId=1`
+
+with your league ID.  All the desired info will pop up.  Now try through a GET request and you'll get basically an empty dict.  This indicates there is some cookie/swid/other stuff being passed behind the scenes for this endpoint.  It is possible to send `espn_s2` cookies, `swid`, and other info in the GET request, but I haven't gotten these to work.   If you've cracked the code on this, please let me know.  
+
+See this [Reddit thread](https://www.reddit.com/r/fantasyfootball/comments/56u8bc/espn_fantasy_football_api_wrapper_for_python_3/) for more discussion.
 
 Hope this has been enjoyable, good luck this season!
 
