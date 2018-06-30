@@ -178,9 +178,11 @@ I'm most interested in `boxscore` which contains the weekly points by player.  H
 
 `http://games.espn.com/ffl/api/v2/boxscore?leagueId=123456&seasonId=2017&matchupPeriodId=1`
 
-with your league ID.  All the desired info will pop up.  Now try through a GET request and you'll get basically an empty dict.  This indicates there is some cookie/swid/other stuff being passed behind the scenes for this endpoint.  It is possible to send `espn_s2` cookies, `swid`, and other info in the GET request, but I haven't gotten these to work.   If you've cracked the code on this, please let me know.  
+with your league ID.  All the desired info will pop up.  Now try through a GET request and you'll get basically an empty dict.  This indicates there is some cookie/swid/other stuff being passed behind the scenes for this endpoint.  It is possible to send `espn_s2` cookies, `swid`, and other info in the GET request, but I haven't gotten these to work.   If you've cracked the code on this, please let me know.
 
-See this [Reddit thread](https://www.reddit.com/r/fantasyfootball/comments/56u8bc/espn_fantasy_football_api_wrapper_for_python_3/) for more discussion.
+**EDIT: I think it be as simple as adding a `teamId` parameter, but more to follow in a later post ...  **
+
+<!-- See this [Reddit thread](https://www.reddit.com/r/fantasyfootball/comments/56u8bc/espn_fantasy_football_api_wrapper_for_python_3/) for more discussion. -->
 
 Hope this has been enjoyable, good luck this season!
 
