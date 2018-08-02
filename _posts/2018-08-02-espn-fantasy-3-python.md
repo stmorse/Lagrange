@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scraping and private leagues, ESPN Fantasy Football (in Python) - Part 3"
+title: "Scraping ESPN Fantasy Football (in Python) - Part 3"
 categories: journal
 date: 2018-08-03
 tags: [projects, football, python]
