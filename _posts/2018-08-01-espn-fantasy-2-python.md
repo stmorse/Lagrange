@@ -6,7 +6,7 @@ date: 2018-08-01
 tags: [projects, football, python]
 ---
 
-This is the first of two triumphant follow-on posts to [this post about using ESPN's Fantasy API](https://stmorse.github.io/journal/espn-fantasy-python.html).  **tl;dr** This post shows how to get detailed historical boxscores (including active + bench player stats) thru the (hidden) ESPN Fantasy Football API, the second one will show (*in the works*) how to access private league info such as by-player stats including free agents.
+This is the first of two triumphant follow-on posts to [this post about using ESPN's Fantasy API](https://stmorse.github.io/journal/espn-fantasy-python.html).  **tl;dr** This post shows how to get detailed historical boxscores (including active + bench player stats) thru the (hidden) ESPN Fantasy Football API, the [second one](https://stmorse.github.io/journal/espn-fantasy-3-python.html) will show how to access private league info such as by-player stats including free agents.
 
 <img align="center" width="100%" src="{{ site.github.url }}/images/radar_sh.png" alt="win-loss profiles">
 
@@ -289,5 +289,5 @@ plt.show()
 This team is getting almost all the variation between "win" and "lose" just in QB performance.  (This was my team, and the QB was Russell Wilson.  I entered the playoffs with the highest standing in the league but lost in the semifinals.)  Contrast that with the radar plot at the beginning of the blog, different team, with a lot of variation from all players.
 
 
-In the next post, I'll cover how to do all this if you're in a private league, and how that also allows you to pull other ESPN login-wall-blocked stats, such as free agent info.
+In the [next post](https://stmorse.github.io/journal/espn-fantasy-3-python.html), I'll cover how to do all this if you're in a private league, and how that also allows you to pull other ESPN login-wall-blocked stats, such as free agent info.
 
