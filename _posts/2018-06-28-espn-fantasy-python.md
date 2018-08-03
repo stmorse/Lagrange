@@ -10,7 +10,7 @@ Fantasy football season approacheth.  Your heart longs to analyze the scoring di
 
 You're in luck.  ESPN has an accessible, though undocumented, API for their Fantasy football database.  This means you can query a question like "what was the score of the week 1 game between ABC and XYZ" directly with a GET request and some JSON fiddling, no web "scraping" required.  
 
-Since the API is mysteriously undocumented, in this blog I'll write down everything I've learned about the API, how to access different parts of it, and how to do that in Python and R.  Here's a boxplot we'll produce:
+Since the API is mysteriously undocumented, in this blog I'll write down everything I've learned about the API, how to access different parts of it, and how to do that in Python and R.  *EDIT* In a follow-on post, I'll show [how to get boxscores](https://stmorse.github.io/journal/espn-fantasy-2-python.html), and then [how to deal with private leagues](https://stmorse.github.io/journal/espn-fantasy-3-python.html).  Here's a boxplot we'll produce:
 
 <img align="center" width="100%" src="{{ site.github.url }}/images/fantasy_boxplot.png" alt="Boxplot of Fantasy scores">
 
@@ -180,9 +180,9 @@ I'm most interested in `boxscore` which contains the weekly points by player.  H
 
 with your league ID.  All the desired info will pop up.  Now try through a GET request and you'll get basically an empty dict.  This indicates there is some cookie/swid/other stuff being passed behind the scenes for this endpoint.  It is possible to send `espn_s2` cookies, `swid`, and other info in the GET request, but I haven't gotten these to work.   If you've cracked the code on this, please let me know.
 
-**EDIT: I think it be as simple as adding a `teamId` parameter, but more to follow in a later post ...  **
+**EDIT:** I think it be as simple as adding a `teamId` parameter, but more to follow in a later post ...
 
-<!-- See this [Reddit thread](https://www.reddit.com/r/fantasyfootball/comments/56u8bc/espn_fantasy_football_api_wrapper_for_python_3/) for more discussion. -->
+**EDIT2:** It was: check out the follow-on posts on [how to get boxscores](https://stmorse.github.io/journal/espn-fantasy-2-python.html), and then [how to deal with private leagues](https://stmorse.github.io/journal/espn-fantasy-3-python.html).
 
 Hope this has been enjoyable, good luck this season!
 
